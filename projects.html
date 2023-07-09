@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Management - Projects</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Project Management</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li class="active"><a href="projects.html">Projects</a></li>
+      <li><a href="tasks.html">Tasks</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </nav>
+  
+  <section id="contentp">
+    <h2>Projects</h2>
+    <form id="add-project-form">
+      <h3>Add New Project</h3>
+      <label for="project-title">Project Title:</label>
+      <input type="text" id="project-title" name="project-title" required>
+      <label for="project-description">Project Description:</label>
+      <textarea id="project-description" name="project-description" required></textarea>
+      <label for="project-deadline">Deadline:</label>
+      <input type="text" id="project-deadline" name="project-deadline" required>
+      <input type="submit" value="Add Project">
+    </form>
+    <h3>Existing Projects</h3>
+    <ul class="project-list">
+      <li>
+        <h3>Web Development for E-commerce Platform</h3>
+        <p>A project to build a responsive e-commerce website using HTML, CSS, and JavaScript.</p>
+        <p><strong>Deadline:</strong> October 31, 2023</p>
+        <h4>Team Report:</h4>
+        <ul class="team-report">
+          <li>John Smith: Working on front-end development.</li>
+          <li>Jane Doe: Implementing backend functionality.</li>
+        </ul>
+      </li>
+      <!-- <li>
+        <h3>Mobile App Development for Social Networking</h3>
+        <p>A project to develop a mobile app for connecting people through social media.</p>
+        <p><strong>Deadline:</strong> December 15, 2023</p>
+        <h4>Team Report:</h4>
+        <ul class="team-report">
+          <li>Alex Johnson: Designing user interface.</li>
+          <li>Sarah Wilson: Developing API integration.</li>
+        </ul>
+      </li> -->
+      <!-- <li>
+        <h3>Data Analytics Dashboard for Sales Analysis</h3>
+        <p>A project to create an interactive dashboard for analyzing sales data using Python and data visualization libraries.</p>
+        <p><strong>Deadline:</strong> September 30, 2023</p>
+        <h4>Team Report:</h4>
+        <ul class="team-report">
+          <li>Michael Brown: Extracting and cleaning data.</li>
+          <li>Emily Davis: Creating data visualizations.</li>
+        </ul>
+      </li> -->
+    </ul>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Bharat Intern. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle form submission
+    document.getElementById("add-project-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Get form input values
+      var title = document.getElementById("project-title").value;
+      var description = document.getElementById("project-description").value;
+      var deadline = document.getElementById("project-deadline").value;
+      
+      // Create new project element
+      var newProject = document.createElement("li");
+      newProject.innerHTML = `
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <p><strong>Deadline:</strong> ${deadline}</p>
+        <h4>Team Report:</h4>
+        <ul class="team-report"></ul>
+      `;
+      
+      // Add the new project to the project list
+      var projectList = document.querySelector(".project-list");
+      projectList.appendChild(newProject);
+      
+      // Reset the form
+      document.getElementById("add-project-form").reset();
+    });
+  </script>
+</body>
+</html>
+
